@@ -56,3 +56,58 @@ Most METAR fetchers either spit out the raw METAR string (which can confuse view
 ### Bot Response in Chat
 
 `🟢 KSEA (VFR) | 💨 Wind: 280° at 8kt | 👁️ Vis: 10 SM | 🌡️ Temp/Dew: 18/10°C (64/50°F) | 📟 Alt: 30.12 inHg (1020 hPa) | ☁️ Sky: Broken @ 6,000ft | 🤖 AUTO Report | Obs: Apr 21 @ 13:53Z`
+
+
+---
+
+## 🔁 Flight Category Emoji Legend
+
+| Category | Emoji | Meaning                      |
+|----------|-------|------------------------------|
+| VFR      | 🟢    | Visual Flight Rules (clear)  |
+| MVFR     | 🔵    | Marginal VFR (light clouds)  |
+| IFR      | 🟠    | Instrument rules (low viz)   |
+| LIFR     | 🔴    | Very poor flying conditions  |
+
+---
+
+## 🛠️ How to Set Up in StreamerBot
+
+### Step 1: Add the C# Action
+1. Open **StreamerBot**
+2. Navigate to the **Actions** tab
+3. Click **Add**, choose `Core > C# > Execute C# Code`, give it a name like `Fetch METAR`
+4. Paste the entire C# script into the editor (you can get it from this repo)
+
+### Step 2: Set Up the Command
+1. Go to the **Commands** tab
+2. Add a new command called `!metar`
+3. Under **Sub-actions**, call your new C# action
+4. In the parameter field, pass in:
+
+---
+
+## 📡 Behind the Scenes: How It Works
+
+- 📥 **Source**: Downloads METAR text file directly from:
+- [METAR](https://tgftp.nws.noaa.gov/data/observations/metar/stations/{ICAO}.TXT)
+- 📅 **Timestamp Handling**: Ignores METARs older than 2 hours
+- 📚 **Regex Decoding**: Extracts key fields from the raw report
+- ⚙️ **Formatter Logic**: Color codes, emoji flags, unit conversions
+- 🧠 **Robust Parsing**: Handles AUTO reports, wind gusts, missing fields, etc.
+
+## 💻 Developer Notes
+
+- Language: `C#` (for use within StreamerBot)
+- External Libraries: None (uses built-in .NET HTTP/Web classes)
+
+## 📜 License
+
+This script is open-source and released under the **MIT License**.  
+Use it, modify it, stream it, remix it—just don't sell it.
+
+## 👋 Final Thoughts
+
+This tool is made by streamers, for streamers—whether you're flying high at FL350 or controlling a busy TRACON sector. Bring weather realism into your stream, engage your audience, and never be caught off-guard by fog again.
+
+Fly safe. Stream strong. And enjoy clear skies! 🛫🌤️
