@@ -1,3 +1,11 @@
+<h1>
+    <img src="https://github.com/Hypekingfish/Metar/blob/main/assets/streamerbot-logo-text.svg" width="250" valign="middle">
+</h1>
+
+
+
+[![Release](https://img.shields.io/github/v/release/hypekingfish/Metar)](https://github.com/Hypekingfish/Metar/releases) ![Discord](https://img.shields.io/discord/858390516223311922?logo=discord&label=Discord&labelColor=RGB%3A88101242)
+
 # ✈️ METAR Fetcher – StreamerBot Edition
 
 Welcome to the **METAR Fetcher**, a high-utility, streamer-ready C# script built specifically for use with [**StreamerBot**](https://streamer.bot)—a free, powerful tool for automating stream interactions. This script lets you fetch and display live METAR aviation weather reports straight from chat commands like `!metar KLAX` or `!metar help`, perfect for flight sim streamers, VATSIM ATC, or aviation nerds who want to bring next-level realism to their Twitch or YouTube streams.
