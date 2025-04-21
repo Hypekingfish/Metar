@@ -2,7 +2,7 @@
     <img src="https://github.com/Hypekingfish/Metar/blob/main/assets/logo.png"
         height="75">
 </p>
-<p>
+<p align="center">
 <a href="https://github.com/badges/shields/pulse" alt="Activity">
         <img src="https://img.shields.io/github/commit-activity/m/badges/shields" /></a>
 <a href="https://discord.gg/AxeJ6ryn2x">
