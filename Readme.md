@@ -1,5 +1,6 @@
 <h1>
-    <img src="https://github.com/Hypekingfish/Metar/blob/main/assets/streamerbot-logo-text.svg" width="50" valign="middle">
+    <img src="https://github.com/Hypekingfish/Metar/blob/main/assets/streamerbot-logo-text.svg" width="150" valign="middle">
+    <span style="font-size: 2em; font-weight: bold">Metar</span>
 </h1>
 
 
