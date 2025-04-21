@@ -1,6 +1,8 @@
 <p align="center">
     <img src="https://github.com/Hypekingfish/Metar/blob/main/assets/logo.png"
         height="75">
+    <img src="https://github.com/Hypekingfish/Metar/blob/main/assets/streamerbot-logo-text.svg"
+        height="75">
 </p>
 <p align="center">
 <a href="https://github.com/badges/shields/pulse" alt="Activity">
