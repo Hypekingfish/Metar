@@ -70,7 +70,9 @@ Most METAR fetchers either spit out the raw METAR string (which can confuse view
 
 ### Twitch Chat Command
 
-<pre> <code>!metar ksea</code> </pre>
+```bash
+!metar ksea
+```
 
 ### Bot Response in Chat
 
