@@ -86,10 +86,7 @@ Most METAR fetchers either spit out the raw METAR string (which can confuse view
 4. Paste the entire C# script into the editor (you can get it from this repo)
 
 ### Step 2: Set Up the Command
-1. Go to the **Commands** tab
-2. Add a new command called `!metar`
-3. Under **Sub-actions**, call your new C# action
-4. In the parameter field, pass in:
+1. The command is setup and include in the SB Import
 
 ---
 
