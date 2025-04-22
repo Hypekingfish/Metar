@@ -13,6 +13,7 @@
 - [📡 How It Works](#-behind-the-scenes-how-it-works)
 - [💻 Developer Notes](#-developer-notes)
 - [📜 License](#-license)
+- [🙌 Credits](#-Credits)
 - [👋 Final Thoughts](#-final-thoughts)
 
 
