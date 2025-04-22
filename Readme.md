@@ -92,8 +92,7 @@ Most METAR fetchers either spit out the raw METAR string (which can confuse view
 
 ## 📡 Behind the Scenes: How It Works
 
-- 📥 **Source**: Downloads METAR text file directly from:
-- [METAR](https://tgftp.nws.noaa.gov/data/observations/metar/stations/KSEA.TXT)
+- 📥 **Source**: Downloads METAR text file directly from: [METAR](https://tgftp.nws.noaa.gov/data/observations/metar/stations/KSEA.TXT)
 - 📅 **Timestamp Handling**: Ignores METARs older than 2 hours
 - 📚 **Regex Decoding**: Extracts key fields from the raw report
 - ⚙️ **Formatter Logic**: Color codes, emoji flags, unit conversions
