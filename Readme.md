@@ -68,7 +68,7 @@ Most METAR fetchers either spit out the raw METAR string (which can confuse view
 
 ## Example Usage
 
-<img src="https://raw.githubusercontent.com/Hypekingfish/Metar/main/assets/Metar-Example.png" width="250" valign="middle" alt="Metar Example">
+<img src="https://raw.githubusercontent.com/Hypekingfish/Metar/main/assets/Metar-Example.png" width="350" valign="middle" alt="Metar Example">
 
 ### Twitch Chat Command
 
