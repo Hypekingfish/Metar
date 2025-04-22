@@ -5,16 +5,16 @@
 [![Release](https://img.shields.io/github/v/release/hypekingfish/Metar)](https://github.com/hypekingfish/Metar/releases) • ![Discord](https://img.shields.io/discord/858390516223311922?logo=discord&label=Discord&labelColor=RGB%3A88101242)
 
 ## Table of Contents
-- [Overview](#️-metar-fetcher--streamerbot-edition)
-- [Key Features](#-key-features)
-- [Example Usage](#-example-usage)
-- [Flight Category Emoji Legend](#-flight-category-emoji-legend)
-- [Setup Instructions](#️-how-to-set-up-in-streamerbot)
-- [How It Works](#-behind-the-scenes-how-it-works)
-- [Developer Notes](#-developer-notes)
-- [License](#-license)
-- [Credits](#-Credits)
-- [Final Thoughts](#-final-thoughts)
+- [Overview](#metar-fetcher--streamerbot-edition)
+- [Key Features](#key-features)
+- [Example Usage](#example-usage)
+- [Flight Category Emoji Legend](#flight-category-emoji-legend)
+- [Setup Instructions](#how-to-set-up-in-streamerbot)
+- [How It Works](#behind-the-scenes-how-it-works)
+- [Developer Notes](#developer-notes)
+- [License](#license)
+- [Credits](#Credits)
+- [Final Thoughts](#final-thoughts)
 
 
 # METAR Fetcher – StreamerBot Edition
