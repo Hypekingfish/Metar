@@ -117,7 +117,7 @@ Most METAR fetchers either spit out the raw METAR string (which can confuse view
 
 ## 📜 License
 
-This script is open-source and released under the **MIT License**.  
+This script is open-source and released under the **GPL License**.  
 Use it, modify it, stream it, remix it—just don't sell it.
 
 ## 🙌 Credits
