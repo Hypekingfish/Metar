@@ -76,7 +76,7 @@ Most METAR fetchers either spit out the raw METAR string (which can confuse view
 
 ### Bot Response in Chat
 
-` 🟢 **KSEA (VFR)** | 💨 Wind: 010° at 05kt | 👁 Visibility: 10 SM | 🌡 Temp/Dew: 10/04°C (50°F/39°F) | 📟 Altimeter: 30.24 inHg (QNH 1024) | ☁ Sky: SCT at 2000ft | 👨‍✈️ Human Observer | Obs: Apr 22, 16:53 UTC | METAR: KSEA 221653Z 01005KT 10SM SCT020 10/04 A3024 RMK AO2 SLP249 T01000039`
+` 🟢 KSEA (VFR) | 💨 Wind: 010° at 5kt | 👁️ Vis: 10 SM | 🌡️ Temp/Dew: 10/04°C (50/39°F) | 📟 Alt: 30.24 inHg (1024 hPa) | ☁️ Sky: Scattered @ 2,000ft | 👨‍✈️ Human Observer | Obs: Apr 22 @ 16:53Z | METAR: KSEA 221653Z 01005KT 10SM SCT020 10/04 A3024 RMK AO2 SLP249 T01000039`
 
 
 ---
