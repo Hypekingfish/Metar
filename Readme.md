@@ -103,9 +103,35 @@ Most METAR fetchers either spit out the raw METAR string (which can confuse view
 1. Use the provided `SB Import` to add the command automatically  
 2. Or manually link the action to a chat command like `!metar`
 
+## Troubleshooting tips
+
+| Issue                          | Solution                                                 |
+|-------------------------------|----------------------------------------------------------|
+| No chat response              | Ensure the action is correctly linked to a command       |
+| Invalid ICAO code             | Confirm it's a real ICAO airport (e.g., `KSEA`, `EGLL`)  |
+| Script not running            | Check for syntax errors or StreamerBot action settings   |
 
 ---
 
+## Command list
+
+| Command          | Description                                 |
+|------------------|---------------------------------------------|
+| `!metar <ICAO>`  | Fetch METAR for given airport               |
+| `!metar help`    | Show help and legend info                   |
+| `!metar random`  | Pull a random ICAO from a list              |
+
+---
+
+## Contributing
+
+Want to help improve the script? Contributions welcome!  
+You can:
+
+- Open issues for bugs or feature ideas
+- Submit pull requests for improvements
+
+---
 ## Behind the Scenes: How It Works
 
 - **Source**: Downloads METAR text file directly from: [METAR](https://tgftp.nws.noaa.gov/data/observations/metar/stations/KSEA.TXT)
