@@ -1,10 +1,8 @@
 <h1>
-    <img src="https://github.com/Hypekingfish/Metar/blob/main/assets/streamerbot-logo-text.svg" width="250" valign="middle">
+  <img src="https://raw.githubusercontent.com/Hypekingfish/Metar/main/assets/streamerbot-logo-text.svg" width="250" valign="middle">
 </h1>
 
-
-
-[![Release](https://img.shields.io/github/v/release/hypekingfish/Metar)](https://github.com/Hypekingfish/Metar/releases) ![Discord](https://img.shields.io/discord/858390516223311922?logo=discord&label=Discord&labelColor=RGB%3A88101242)
+[![Release](https://img.shields.io/github/v/release/hypekingfish/Metar)](https://github.com/hypekingfish/Metar/releases) • ![Discord](https://img.shields.io/discord/858390516223311922?logo=discord&label=Discord&labelColor=RGB%3A88101242)
 
 # ✈️ METAR Fetcher – StreamerBot Edition
 
@@ -57,7 +55,7 @@ Most METAR fetchers either spit out the raw METAR string (which can confuse view
 
 ### Twitch Chat Command
 
-`!metar ksea`
+<pre> <code>!metar ksea</code> </pre>
 
 ### Bot Response in Chat
 
@@ -79,14 +77,15 @@ Most METAR fetchers either spit out the raw METAR string (which can confuse view
 
 ## 🛠️ How to Set Up in StreamerBot
 
-### Step 1: Add the C# Action
-1. Open **StreamerBot**
-2. Navigate to the **Actions** tab
-3. Click **Add**, choose `Core > C# > Execute C# Code`, give it a name like `Fetch METAR`
-4. Paste the entire C# script into the editor (you can get it from this repo)
+### 🧩 Step 1: Add the C# Action
+1. 🖥️ Open **StreamerBot**
+2. 🛠️ Go to the **Actions** tab
+3. ➕ Click **Add**, choose `Core > C# > Execute C# Code`, name it `Fetch METAR`
+4. 📋 Paste the script from this repo into the editor
 
-### Step 2: Set Up the Command
-1. The command is setup and include in the SB Import
+### 💬 Step 2: Add the Chat Command
+1. 🎙️ The command is included in the SB Import for convenience
+
 
 ---
 
