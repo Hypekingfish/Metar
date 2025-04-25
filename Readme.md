@@ -141,12 +141,12 @@ Most METAR fetchers either spit out the raw METAR string (which can confuse view
 
 ## Frequently Asked Questions
 
-| **Question** | Description                                 |
+| **Question** | **Answer**                                 |
 |------------------|---------------------------------------------|
 | Does this script work for all airports? | Yes, as long as the airport has a valid METAR report, the script can fetch weather data for any ICAO airport code (e.g., `KSEA`, `EGLL`, `RJTT`). If the airport does not have a METAR report, the script will not return data. |
-| `!metar help`    | Show help and legend info                   |
-| `!metar random`  | Pull a random ICAO from a list              |
-
+| How do I update the script or fetch a new version? | To update the script, you can visit the [GitHub repository](https://github.com/Hypekingfish/Metar) for the latest release and simply replace the script in StreamerBot with the updated version. |
+| Can I use this script outside of Twitch?  | Currently, the script is designed specifically for Twitch using StreamerBot. However, it may be adaptable for other platforms that support custom bots or commands with some modifications. |
+| How do I get METAR data for airports outside of the US? | METAR data is available globally, so the script will work for airports worldwide as long as they have active METAR reports (using ICAO codes like `EGLL`, `RJTT`, etc.). | 
 ---
 
 ## Contributing
