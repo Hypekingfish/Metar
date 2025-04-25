@@ -140,8 +140,12 @@ Most METAR fetchers either spit out the raw METAR string (which can confuse view
 ---
 
 ## Frequently Asked Questions
-| **Question** | **Answer** |
-| **** | **** |
+
+| **Question** | Description                                 |
+|------------------|---------------------------------------------|
+| Does this script work for all airports? | Yes, as long as the airport has a valid METAR report, the script can fetch weather data for any ICAO airport code (e.g., `KSEA`, `EGLL`, `RJTT`). If the airport does not have a METAR report, the script will not return data. |
+| `!metar help`    | Show help and legend info                   |
+| `!metar random`  | Pull a random ICAO from a list              |
 
 ---
 
