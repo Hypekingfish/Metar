@@ -139,6 +139,12 @@ Most METAR fetchers either spit out the raw METAR string (which can confuse view
 
 ---
 
+## Frequently Asked Questions
+| **Question** | **Answer** |
+| **** | **** |
+
+---
+
 ## Contributing
 
 Want to help improve the script? Contributions welcome!  
