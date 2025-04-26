@@ -134,20 +134,49 @@ public class CPHInline
 
     private double ParseVisibility(string visStr)
     {
-        if (visStr.Contains("/"))
+        visStr = visStr.Replace("SM", "").Trim();
+
+        // Handle mixed number like "1 1/2"
+        if (visStr.Contains(" "))
         {
-            var parts = visStr.Replace("SM", "").Split('/');
-            if (parts.Length == 2 && double.TryParse(parts[0], out double numerator) && double.TryParse(parts[1], out double denominator))
+            var parts = visStr.Split(' ');
+            if (parts.Length == 2 &&
+                double.TryParse(parts[0], out double whole) &&
+                parts[1].Contains("/") &&
+                TryParseFraction(parts[1], out double fraction))
             {
-                return numerator / denominator;
+                return whole + fraction;
             }
         }
-        else if (double.TryParse(visStr.Replace("SM", ""), out double miles))
+
+        // Handle pure fraction like "1/2"
+        if (visStr.Contains("/") && TryParseFraction(visStr, out double fracOnly))
+        {
+            return fracOnly;
+        }
+
+        // Handle whole number only
+        if (double.TryParse(visStr, out double miles))
         {
             return miles;
         }
 
-        return 10;
+        return 10; // fallback
+    }
+
+    private bool TryParseFraction(string input, out double result)
+    {
+        result = 0;
+        var parts = input.Split('/');
+        if (parts.Length == 2 &&
+            double.TryParse(parts[0], out double num) &&
+            double.TryParse(parts[1], out double den) &&
+            den != 0)
+        {
+            result = num / den;
+            return true;
+        }
+        return false;
     }
 
     private string BuildWeatherSummary(string metar)
@@ -218,26 +247,25 @@ public class CPHInline
     }
 
 		private string GetWindInfo(string metar)
-	{
-		var windMatch = Regex.Match(metar, @"\b(\d{3}|VRB)(\d{2,3})(G\d{2,3})?KT\b");
-		if (windMatch.Success)
-		{
-			string dir = windMatch.Groups[1].Value;
-			string spd = windMatch.Groups[2].Value;
-			string gust = windMatch.Groups[3].Value;
+    {
+        var windMatch = Regex.Match(metar, @"\b(\d{3}|VRB)(\d{2,3})(G\d{2,3})?KT\b");
+        if (windMatch.Success)
+        {
+            string dir = windMatch.Groups[1].Value;
+            string spd = windMatch.Groups[2].Value;
+            string gust = windMatch.Groups[3].Value;
 
-			// Special wind conditions
-			if (dir == "000" && spd == "00")
-				return "💨 Calm winds";
+            if (dir == "000" && spd == "00")
+                return "💨 Winds calm";
 
-			if (dir == "VRB")
-				return $"💨 Variable wind at {spd}kt" + (string.IsNullOrEmpty(gust) ? "" : $" gusting {gust.Substring(1)}kt");
+            if (dir == "VRB")
+                return $"💨 Variable wind at {spd}kt" + (string.IsNullOrEmpty(gust) ? "" : $" gusting {gust.Substring(1)}kt");
 
-			return $"💨 Wind: {dir}° at {spd}kt" + (string.IsNullOrEmpty(gust) ? "" : $" gusting {gust.Substring(1)}kt");
-		}
+            return $"💨 Wind: {dir}° at {spd}kt" + (string.IsNullOrEmpty(gust) ? "" : $" gusting {gust.Substring(1)}kt");
+        }
 
-		return "💨 Wind: Not reported";
-	}
+        return "💨 Wind: Not reported";
+    }
     
 
     private string ConvertCtoF(string celsiusStr)
@@ -261,19 +289,94 @@ public class CPHInline
 
     private string IsAutomatedStation(string metar)
     {
-        return metar.Contains("AUTO") ? "🤖 Automated Report" : "👨‍✈️ Human Observer";
+        string upperMetar = metar.ToUpperInvariant();
+
+        if (upperMetar.Contains("AO2"))
+            return upperMetar.Contains("RMK") ? "Automated (AO2) with remarks" : "Automated (AO2)";
+        else if (upperMetar.Contains("AO1"))
+            return upperMetar.Contains("RMK") ? "Automated (AO1) with remarks" : "Automated (AO1)";
+        else if (upperMetar.Contains("AUTO"))
+            return "Fully automated (no human observer)";
+        else if (upperMetar.Contains("COR"))
+            return "Corrected observation (may be manual)";
+        else
+            return "Manual or Unknown";
     }
+
+
 
     private string DetectSevereWeather(string metar)
     {
         var alerts = new List<string>();
-        if (metar.Contains("+TSRA")) alerts.Add("⛈️ Heavy Thunderstorm");
-        if (metar.Contains("FG")) alerts.Add("🌫️ Fog");
-        // if (metar.Contains("SN")) alerts.Add("❄️ Snow");
-        if (metar.Contains("+RA")) alerts.Add("🌧️ Heavy Rain");
-        if (metar.Contains("-RA")) alerts.Add("☔ Light Rain");
-        if (metar.Contains("$")) alerts.Add("Maintenance Required");
-        if (metar.Contains("VCSH")) alerts.Add("Showers in Area");
+
+        // Thunderstorms & convective weather
+        if (metar.Contains("+TSRA")) alerts.Add("Heavy thunderstorm with rain");
+        else if (metar.Contains("TSRA")) alerts.Add("Thunderstorm with rain");
+        else if (metar.Contains("TS")) alerts.Add("Thunderstorm");
+
+        // Rain
+        if (metar.Contains("+RA")) alerts.Add("Heavy rain");
+        else if (metar.Contains("-RA")) alerts.Add("Light rain");
+        else if (metar.Contains("RA")) alerts.Add("Rain");
+
+        // Drizzle
+        if (metar.Contains("+DZ")) alerts.Add("Heavy drizzle");
+        else if (metar.Contains("-DZ")) alerts.Add("Light drizzle");
+        else if (metar.Contains("DZ")) alerts.Add("Drizzle");
+
+        // Freezing rain/drizzle
+        if (metar.Contains("FZRA")) alerts.Add("Freezing rain");
+        if (metar.Contains("FZDZ")) alerts.Add("Freezing drizzle");
+
+        // Snow & wintry mix
+        if (metar.Contains("+SN")) alerts.Add("Heavy snow");
+        else if (metar.Contains("-SN")) alerts.Add("Light snow");
+        else if (metar.Contains("SN") && metar.Contains("GS")) alerts.Add("Snow");
+
+        if (metar.Contains("SG")) alerts.Add("Snow grains");
+        if (metar.Contains("GS")) alerts.Add("small hail");
+        if (metar.Contains("GR")) alerts.Add("Hail");
+
+        // Ice crystals or ice pellets
+        if (metar.Contains("IC")) alerts.Add("Ice crystals");
+        if (metar.Contains("PL")) alerts.Add("Ice pellets");
+
+        // Fog, mist, haze
+        if (metar.Contains("FG")) alerts.Add("Fog");
+        if (metar.Contains("BR")) alerts.Add("Mist");
+        if (metar.Contains("HZ")) alerts.Add("Haze");
+
+        // Obscurations and airborne particles
+        if (metar.Contains("FU") && metar.Contains("DSNT")) alerts.Add("Smoke in the distance");
+        else if (metar.Contains("FU")) alerts.Add("Smoke");
+
+        if (metar.Contains("DU")) alerts.Add("Widespread dust");
+        if (metar.Contains("SA")) alerts.Add("Sand");
+        if (metar.Contains("VA")) alerts.Add("Volcanic ash");
+
+        // Blowing phenomena
+        if (metar.Contains("BLSN")) alerts.Add("Blowing snow");
+        if (metar.Contains("BLDU")) alerts.Add("Blowing dust");
+        if (metar.Contains("BLSA")) alerts.Add("Blowing sand");
+
+        // Vicinity phenomena
+        if (metar.Contains("VCSH")) alerts.Add("Showers in the vicinity");
+        if (metar.Contains("VCFG")) alerts.Add("Fog in the vicinity");
+        if (metar.Contains("VCTS")) alerts.Add("Thunderstorms in the vicinity");
+
+        // Severe phenomena
+        if (metar.Contains("+FC")) alerts.Add("Tornado or waterspout");
+        else if (metar.Contains("FC")) alerts.Add("Funnel cloud");
+
+        // Wind & visibility
+        if (metar.Contains("G") && metar.Contains("KT")) alerts.Add("Gusty winds");
+        if (metar.Contains("SQ")) alerts.Add("Squalls");
+        if (metar.Contains("VIS") && metar.Contains("NO")) alerts.Add("Visibility data missing");
+
+        // Maintenance & pressure
+        if (metar.Contains("$")) alerts.Add("Maintenance indicator active");
+        if (metar.Contains("SLPNO")) alerts.Add("Sea-level pressure not available");
+
         return alerts.Count > 0 ? $"⚠️ {string.Join(", ", alerts)}" : "";
     }
 }
