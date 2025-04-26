@@ -4,7 +4,9 @@
   <img src="https://raw.githubusercontent.com/Hypekingfish/Metar/main/assets/streamerbot-logo-text.svg" width="250" valign="middle" alt="StreamerBot Logo">
 </h1>
 
-![Built with C#](https://img.shields.io/badge/Built%20with-C%23-blue) • [![Release](https://img.shields.io/github/v/release/hypekingfish/Metar)](https://github.com/hypekingfish/Metar/releases) • [![Discord](https://img.shields.io/discord/858390516223311922?logo=discord&label=Discord&labelColor=RGB%3A88101242)](https://discord.gg/YOUR-SERVER-ID) • ![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/Hypekingfish/Metar?utm_source=oss&utm_medium=github&utm_campaign=Hypekingfish%2FMetar&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews) • ![GitHub License](https://img.shields.io/github/license/Hypekingfish/Metar)
+![Built with C#](https://img.shields.io/badge/Built%20with-C%23-blue) • [![Release](https://img.shields.io/github/v/release/hypekingfish/Metar)](https://github.com/hypekingfish/Metar/releases) • [![Discord](https://img.shields.io/discord/858390516223311922?logo=discord&label=Discord&labelColor=RGB%3A88101242)](https://discord.gg/YOUR-SERVER-ID) • ![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/Hypekingfish/Metar?utm_source=oss&utm_medium=github&utm_campaign=Hypekingfish%2FMetar&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews) • ![GitHub License](https://img.shields.io/github/license/Hypekingfish/Metar) • ![StreamerBot Compatible](https://img.shields.io/badge/StreamerBot-Compatible-brightgreen)
+![No API Key Needed](https://img.shields.io/badge/No%20API%20Key-Required-blueviolet)
+
 
 
 
@@ -178,7 +180,7 @@ Want to contribute to the project? Here’s how you can help:
 ## Developer Notes
 
 - Language: `C#` (for use within StreamerBot)
-- External Libraries: None (uses built-in .NET HTTP/Web classes)
+- External Libraries: None (uses only built-in .NET classes like HttpClient and Regex)
 
 ## License
 
