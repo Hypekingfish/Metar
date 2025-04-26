@@ -7,10 +7,8 @@
 ![Built with C#](https://img.shields.io/badge/Built%20with-C%23-blue) • [![Release](https://img.shields.io/github/v/release/hypekingfish/Metar)](https://github.com/hypekingfish/Metar/releases) • [![Discord](https://img.shields.io/discord/858390516223311922?logo=discord&label=Discord&labelColor=RGB%3A88101242)](https://discord.gg/YOUR-SERVER-ID) • ![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/Hypekingfish/Metar?utm_source=oss&utm_medium=github&utm_campaign=Hypekingfish%2FMetar&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews) • ![GitHub License](https://img.shields.io/github/license/Hypekingfish/Metar) • ![StreamerBot Compatible](https://img.shields.io/badge/StreamerBot-Compatible-brightgreen)
 ![No API Key Needed](https://img.shields.io/badge/No%20API%20Key-Required-blueviolet)
 
-
-
-
 ## Table of Contents
+
 - [Overview](#metar-fetcher--streamerbot-edition)
 - [Key Features](#key-features)
 - [Example Usage](#example-usage)
@@ -48,6 +46,7 @@ With detailed decoding, automatic weather category parsing, and full chat-ready 
 
 - **Human-Readable Weather Summaries**  
   Transforms raw METAR data into a clean, informative summary:
+
   - Wind (direction, speed, gusts)
   - Visibility in SM
   - Temperature & Dew Point (°C and °F)
@@ -59,12 +58,13 @@ With detailed decoding, automatic weather category parsing, and full chat-ready 
 
 - **Severe Weather Detection**  
   Alerts for intense conditions such as:
+
   - Thunderstorms (`+TSRA`)
   - Heavy snow/rain (`+SN`, `+RA`)
   - Fog (`FG`, `BR`)
   - Low ceilings and poor visibility
 
-- **Fully StreamerBot-Compatible**  
+- **Fully StreamerBot-Compatible**
   - Trigger via Twitch Chat Commands (`!metar KLAX`)
   - Fully offline-capable—no extra installs or libraries required
 
@@ -73,6 +73,7 @@ With detailed decoding, automatic weather category parsing, and full chat-ready 
 ## Why This Script?
 
 Most METAR fetchers either spit out the raw METAR string (which can confuse viewers) or require external services or subscriptions. This script is:
+
 - **Completely local**: fetches directly from NOAA without an API key
 - **Modular**: customizable inside StreamerBot for overlays, alerts, etc.
 - **Instant**: lightweight and fast, ideal for mid-flight or ATC use
@@ -94,23 +95,23 @@ Most METAR fetchers either spit out the raw METAR string (which can confuse view
 
 ` 🟢 KSEA (VFR) | 💨 Wind: 010° at 5kt | 👁️ Vis: 10 SM | 🌡️ Temp/Dew: 10/04°C (50/39°F) | 📟 Alt: 30.24 inHg (1024 hPa) | ☁️ Sky: Scattered @ 2,000ft | 👨‍✈️ Human Observer | Obs: Apr 22 @ 16:53Z | METAR: KSEA 221653Z 01005KT 10SM SCT020 10/04 A3024 RMK AO2 SLP249 T01000039`
 
-
 ---
 
 ## Flight Category Emoji Legend
 
-| Category | Emoji | Meaning                      |
-|----------|-------|------------------------------|
-| VFR      | 🟢    | Visual Flight Rules (clear)  |
-| MVFR     | 🔵    | Marginal VFR (light clouds)  |
-| IFR      | 🟠    | Instrument rules (low viz)   |
-| LIFR     | 🔴    | Very poor flying conditions  |
+| Category | Emoji | Meaning                     |
+| -------- | ----- | --------------------------- |
+| VFR      | 🟢    | Visual Flight Rules (clear) |
+| MVFR     | 🔵    | Marginal VFR (light clouds) |
+| IFR      | 🟠    | Instrument rules (low viz)  |
+| LIFR     | 🔴    | Very poor flying conditions |
 
 ---
 
 ## How to Set Up in StreamerBot
 
 ### Step 1: Add the C# Action
+
 1. Open **StreamerBot**
 2. Go to the **Actions** tab
 3. Click **Add**, choose `Core > C# > Execute C# Code`, name it `Fetch METAR`
@@ -118,37 +119,37 @@ Most METAR fetchers either spit out the raw METAR string (which can confuse view
 
 ### Command
 
-1. Use the provided `SB Import` to add the command automatically  
+1. Use the provided `SB Import` to add the command automatically
 2. Or manually link the action to a chat command like `!metar`
 
 ## Troubleshooting tips
 
-| Issue                          | Solution                                                 |
-|-------------------------------|----------------------------------------------------------|
-| No chat response              | Ensure the action is correctly linked to a command       |
-| Invalid ICAO code             | Confirm it's a real ICAO airport (e.g., `KSEA`, `EGLL`)  |
-| Script not running            | Check for syntax errors or StreamerBot action settings   |
+| Issue              | Solution                                                |
+| ------------------ | ------------------------------------------------------- |
+| No chat response   | Ensure the action is correctly linked to a command      |
+| Invalid ICAO code  | Confirm it's a real ICAO airport (e.g., `KSEA`, `EGLL`) |
+| Script not running | Check for syntax errors or StreamerBot action settings  |
 
 ---
 
 ## Command list
 
-| Command          | Description                                 |
-|------------------|---------------------------------------------|
-| `!metar <ICAO>`  | Fetch METAR for given airport               |
-| `!metar help`    | Show help and legend info                   |
-| `!metar random`  | Pull a random ICAO from a list              |
+| Command         | Description                    |
+| --------------- | ------------------------------ |
+| `!metar <ICAO>` | Fetch METAR for given airport  |
+| `!metar help`   | Show help and legend info      |
+| `!metar random` | Pull a random ICAO from a list |
 
 ---
 
 ## Frequently Asked Questions
 
-| **Question** | **Answer**                                 |
-|------------------|---------------------------------------------|
-| Does this script work for all airports? | Yes, as long as the airport has a valid METAR report, the script can fetch weather data for any ICAO airport code (e.g., `KSEA`, `EGLL`, `RJTT`). If the airport does not have a METAR report, the script will not return data. |
-| How do I update the script or fetch a new version? | To update the script, you can visit the [GitHub repository](https://github.com/Hypekingfish/Metar) for the latest release and simply replace the script in StreamerBot with the updated version. |
-| Can I use this script outside of Twitch?  | Currently, the script is designed specifically for Twitch using StreamerBot. However, it may be adaptable for other platforms that support custom bots or commands with some modifications. |
-| How do I get METAR data for airports outside of the US? | METAR data is available globally, so the script will work for airports worldwide as long as they have active METAR reports (using ICAO codes like `EGLL`, `RJTT`, etc.). |
+| **Question**                                            | **Answer**                                                                                                                                                                                                                      |
+| ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Does this script work for all airports?                 | Yes, as long as the airport has a valid METAR report, the script can fetch weather data for any ICAO airport code (e.g., `KSEA`, `EGLL`, `RJTT`). If the airport does not have a METAR report, the script will not return data. |
+| How do I update the script or fetch a new version?      | To update the script, you can visit the [GitHub repository](https://github.com/Hypekingfish/Metar) for the latest release and simply replace the script in StreamerBot with the updated version.                                |
+| Can I use this script outside of Twitch?                | Currently, the script is designed specifically for Twitch using StreamerBot. However, it may be adaptable for other platforms that support custom bots or commands with some modifications.                                     |
+| How do I get METAR data for airports outside of the US? | METAR data is available globally, so the script will work for airports worldwide as long as they have active METAR reports (using ICAO codes like `EGLL`, `RJTT`, etc.).                                                        |
 
 ---
 
@@ -169,6 +170,7 @@ Want to contribute to the project? Here’s how you can help:
 - **Code Contributions:** Fork the repo and submit a pull request with your changes. Contributions are always welcome!
 
 ---
+
 ## Behind the Scenes: How It Works
 
 - **Source**: Downloads METAR text file directly from: [METAR](https://tgftp.nws.noaa.gov/data/observations/metar/stations/KSEA.TXT)
