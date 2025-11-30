@@ -9,16 +9,26 @@
 
 ## Table of Contents
 
-- [Overview](#metar-fetcher--streamerbot-edition)
-- [Key Features](#key-features)
-- [Example Usage](#example-usage)
-- [Flight Category Emoji Legend](#flight-category-emoji-legend)
-- [Setup Instructions](#how-to-set-up-in-streamerbot)
-- [How It Works](#behind-the-scenes-how-it-works)
-- [Developer Notes](#developer-notes)
-- [License](#license)
-- [Credits](#Credits)
-- [Final Thoughts](#final-thoughts)
+- [METAR Fetcher – StreamerBot Edition](#metar-fetcher--streamerbot-edition)
+  - [Key Features](#key-features)
+  - [Why This Script?](#why-this-script)
+  - [Example Usage](#example-usage)
+    - [Twitch Chat Command](#twitch-chat-command)
+    - [Bot Response in Chat](#bot-response-in-chat)
+  - [Flight Category Emoji Legend](#flight-category-emoji-legend)
+  - [How to Set Up in StreamerBot](#how-to-set-up-in-streamerbot)
+    - [Step 1: Add the C# Action](#step-1-add-the-c-action)
+    - [Command](#command)
+  - [Troubleshooting tips](#troubleshooting-tips)
+  - [Command list](#command-list)
+  - [Frequently Asked Questions](#frequently-asked-questions)
+  - [Links to Related Resources](#links-to-related-resources)
+  - [Contributing](#contributing)
+  - [Behind the Scenes: How It Works](#behind-the-scenes-how-it-works)
+  - [Developer Notes](#developer-notes)
+  - [License](#license)
+  - [Credits](#credits)
+  - [Final Thoughts](#final-thoughts)
 
 ---
 
