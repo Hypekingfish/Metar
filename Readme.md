@@ -7,22 +7,32 @@
 ![Built with C#](https://img.shields.io/badge/Built%20with-C%23-blue) • [![Release](https://img.shields.io/github/v/release/hypekingfish/Metar)](https://github.com/hypekingfish/Metar/releases) • [![Discord](https://img.shields.io/discord/858390516223311922?logo=discord&label=Discord&labelColor=RGB%3A88101242)](https://discord.gg/YOUR-SERVER-ID) • ![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/Hypekingfish/Metar?utm_source=oss&utm_medium=github&utm_campaign=Hypekingfish%2FMetar&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews) • ![GitHub License](https://img.shields.io/github/license/Hypekingfish/Metar) • ![StreamerBot Compatible](https://img.shields.io/badge/StreamerBot-Compatible-brightgreen)
 ![No API Key Needed](https://img.shields.io/badge/No%20API%20Key-Required-blueviolet)
 
-## Table of Contents
+## 0.1. Table of Contents
 
-- [Overview](#metar-fetcher--streamerbot-edition)
-- [Key Features](#key-features)
-- [Example Usage](#example-usage)
-- [Flight Category Emoji Legend](#flight-category-emoji-legend)
-- [Setup Instructions](#how-to-set-up-in-streamerbot)
-- [How It Works](#behind-the-scenes-how-it-works)
-- [Developer Notes](#developer-notes)
-- [License](#license)
-- [Credits](#Credits)
-- [Final Thoughts](#final-thoughts)
+- [1. METAR Fetcher – StreamerBot Edition](#1-metar-fetcher--streamerbot-edition)
+  - [1.1 Key Features](#11-key-features)
+  - [1.2. Why This Script?](#12-why-this-script)
+  - [1.3. Example Usage](#13-example-usage)
+    - [1.3.1. Twitch Chat Command](#131-twitch-chat-command)
+    - [1.3.2. Bot Response in Chat](#132-bot-response-in-chat)
+  - [1.4. Flight Category Emoji Legend](#14-flight-category-emoji-legend)
+  - [1.5. How to Set Up in StreamerBot](#15-how-to-set-up-in-streamerbot)
+    - [1.5.1. Step 1: Add the C# Action](#151-step-1-add-the-c-action)
+    - [1.5.2. Command](#152-command)
+  - [1.6. Troubleshooting tips](#16-troubleshooting-tips)
+  - [1.7. Command list](#17-command-list)
+  - [1.8. Frequently Asked Questions](#18-frequently-asked-questions)
+  - [1.9. Links to Related Resources](#19-links-to-related-resources)
+  - [1.10. Contributing](#110-contributing)
+  - [1.11. Behind the Scenes: How It Works](#111-behind-the-scenes-how-it-works)
+  - [1.12. Developer Notes](#112-developer-notes)
+  - [1.13. License](#113-license)
+  - [1.14. Credits](#114-credits)
+  - [1.15. Final Thoughts](#115-final-thoughts)
 
 ---
 
-## Quick Start
+## 0.2. Quick Start
 
 1. Open StreamerBot > Actions tab > Add new C# action
 2. Paste the script from this repo
@@ -31,7 +41,7 @@
 
 ---
 
-# METAR Fetcher – StreamerBot Edition
+# 1. METAR Fetcher – StreamerBot Edition
 
 Welcome to the **METAR Fetcher**, a high-utility, streamer-ready C# script built specifically for use with [**StreamerBot**](https://streamer.bot)—a free, powerful tool for automating stream interactions. This script lets you fetch and display live METAR aviation weather reports straight from chat commands like `!metar KLAX` or `!metar help`, perfect for flight sim streamers, VATSIM ATC, or aviation nerds who want to bring next-level realism to their Twitch or YouTube streams.
 
@@ -39,7 +49,7 @@ With detailed decoding, automatic weather category parsing, and full chat-ready 
 
 ---
 
-## Key Features
+## 1.1 Key Features
 
 - **Real-time METAR Fetching**  
   Retrieve the most recent METAR weather report from any ICAO-coded airport (e.g., `KSEA`, `EGLL`, `RJTT`, etc.).
@@ -70,7 +80,7 @@ With detailed decoding, automatic weather category parsing, and full chat-ready 
 
 ---
 
-## Why This Script?
+## 1.2. Why This Script?
 
 Most METAR fetchers either spit out the raw METAR string (which can confuse viewers) or require external services or subscriptions. This script is:
 
@@ -81,23 +91,23 @@ Most METAR fetchers either spit out the raw METAR string (which can confuse view
 
 ---
 
-## Example Usage
+## 1.3. Example Usage
 
 ![Example METAR output showing weather details for KSEA](https://raw.githubusercontent.com/Hypekingfish/Metar/main/assets/Metar-Example.png)
 
-### Twitch Chat Command
+### 1.3.1. Twitch Chat Command
 
 ```bash
 !metar ksea
 ```
 
-### Bot Response in Chat
+### 1.3.2. Bot Response in Chat
 
 ` 🟢 KSEA (VFR) | 💨 Wind: 010° at 5kt | 👁️ Vis: 10 SM | 🌡️ Temp/Dew: 10/04°C (50/39°F) | 📟 Alt: 30.24 inHg (1024 hPa) | ☁️ Sky: Scattered @ 2,000ft | 👨‍✈️ Human Observer | Obs: Apr 22 @ 16:53Z | METAR: KSEA 221653Z 01005KT 10SM SCT020 10/04 A3024 RMK AO2 SLP249 T01000039`
 
 ---
 
-## Flight Category Emoji Legend
+## 1.4. Flight Category Emoji Legend
 
 | Category | Emoji | Meaning                     |
 | -------- | ----- | --------------------------- |
@@ -108,21 +118,21 @@ Most METAR fetchers either spit out the raw METAR string (which can confuse view
 
 ---
 
-## How to Set Up in StreamerBot
+## 1.5. How to Set Up in StreamerBot
 
-### Step 1: Add the C# Action
+### 1.5.1. Step 1: Add the C# Action
 
 1. Open **StreamerBot**
 2. Go to the **Actions** tab
 3. Click **Add**, choose `Core > C# > Execute C# Code`, name it `Fetch METAR`
 4. Paste the script from this repo into the editor
 
-### Command
+### 1.5.2. Command
 
 1. Use the provided `SB Import` to add the command automatically
 2. Or manually link the action to a chat command like `!metar`
 
-## Troubleshooting tips
+## 1.6. Troubleshooting tips
 
 | Issue              | Solution                                                |
 | ------------------ | ------------------------------------------------------- |
@@ -132,7 +142,7 @@ Most METAR fetchers either spit out the raw METAR string (which can confuse view
 
 ---
 
-## Command list
+## 1.7. Command list
 
 | Command         | Description                    |
 | --------------- | ------------------------------ |
@@ -142,7 +152,7 @@ Most METAR fetchers either spit out the raw METAR string (which can confuse view
 
 ---
 
-## Frequently Asked Questions
+## 1.8. Frequently Asked Questions
 
 | **Question**                                            | **Answer**                                                                                                                                                                                                                      |
 | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -153,7 +163,7 @@ Most METAR fetchers either spit out the raw METAR string (which can confuse view
 
 ---
 
-## Links to Related Resources
+## 1.9. Links to Related Resources
 
 - [VATSIM](https://www.vatsim.net/): Join a network of live air traffic controllers and pilots to enhance your flight sim experience.
 - [Aviation Weather Center](https://www.weather.gov/aviation/): For more detailed weather information and forecasts.
@@ -161,7 +171,7 @@ Most METAR fetchers either spit out the raw METAR string (which can confuse view
 
 ---
 
-## Contributing
+## 1.10. Contributing
 
 Want to contribute to the project? Here’s how you can help:
 
@@ -171,7 +181,7 @@ Want to contribute to the project? Here’s how you can help:
 
 ---
 
-## Behind the Scenes: How It Works
+## 1.11. Behind the Scenes: How It Works
 
 - **Source**: Downloads METAR text file directly from: [METAR](https://tgftp.nws.noaa.gov/data/observations/metar/stations/KSEA.TXT)
 - **Timestamp Handling**: Ignores METARs older than 2 hours
@@ -179,21 +189,21 @@ Want to contribute to the project? Here’s how you can help:
 - **Formatter Logic**: Color codes, emoji flags, unit conversions
 - **Robust Parsing**: Handles AUTO reports, wind gusts, missing fields, etc.
 
-## Developer Notes
+## 1.12. Developer Notes
 
 - Language: `C#` (for use within StreamerBot)
 - External Libraries: None (uses only built-in .NET classes like HttpClient and Regex)
 
-## License
+## 1.13. License
 
 This script is open-source and released under the **GPL License**.  
 Use it, modify it, stream it, remix it—just don't sell it.
 
-## Credits
+## 1.14. Credits
 
 - Script developed by [@Hypekingfish](https://github.com/Hypekingfish)
 
-## Final Thoughts
+## 1.15. Final Thoughts
 
 This tool is made by streamers, for streamers—whether you're flying high at FL350 or controlling a busy TRACON sector. Bring weather realism into your stream, engage your audience, and never be caught off-guard by fog again.
 
