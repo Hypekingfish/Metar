@@ -21,6 +21,7 @@
 - [8. How to Set Up in StreamerBot](#8-how-to-set-up-in-streamerbot)
   - [8.1. Step 1: Add the C# Action](#81-step-1-add-the-c-action)
   - [8.2. Command](#82-command)
+  - [8.3. Test the command](#83-test-the-command)
 - [9. Troubleshooting tips](#9-troubleshooting-tips)
 - [10. Command list](#10-command-list)
 - [11. Frequently Asked Questions](#11-frequently-asked-questions)
@@ -133,6 +134,12 @@ Most METAR fetchers either spit out the raw METAR string (which can confuse view
 
 1. Use the provided `SB Import` to add the command automatically
 2. Or manually link the action to a chat command like `!metar`
+
+### 8.3. Test the command
+
+1. Open Twitch
+2. In the chatbox type `!metar KLAX`
+3. Observe output
 
 ## 9. Troubleshooting tips
 
