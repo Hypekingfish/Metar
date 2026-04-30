@@ -1,8 +1,12 @@
 <!-- Keywords: METAR, StreamerBot, C# Script, Twitch Weather Bot, VATSIM Tools, Aviation Weather, OBS Overlay, Real-time METAR -->
 
-<h1>
-  <img src="https://raw.githubusercontent.com/Hypekingfish/Metar/main/assets/streamerbot-logo-text.svg" width="250" valign="middle" alt="StreamerBot Logo">
-</h1>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Hypekingfish/Metar/main/assets/streamerbot-logo-text.svg" alt="StreamerBot Logo" width="250">
+  <span style="font-size: 2rem;">×</span>
+  <img src="https://via.placeholder.com/250x80?text=Metar+Fetcher" alt="Metar Fetcher" width="250">
+</p>
+
+---
 
 ![Built with C#](https://img.shields.io/badge/Built%20with-C%23-blue) • [![Release](https://img.shields.io/github/v/release/hypekingfish/Metar)](https://github.com/hypekingfish/Metar/releases) • [![Discord](https://img.shields.io/discord/858390516223311922?logo=discord&label=Discord&labelColor=RGB%3A88101242)](https://discord.gg/YOUR-SERVER-ID) • ![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/Hypekingfish/Metar?utm_source=oss&utm_medium=github&utm_campaign=Hypekingfish%2FMetar&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews) • ![GitHub License](https://img.shields.io/github/license/Hypekingfish/Metar) • ![StreamerBot Compatible](https://img.shields.io/badge/StreamerBot-Compatible-brightgreen)
 ![No API Key Needed](https://img.shields.io/badge/No%20API%20Key-Required-blueviolet)

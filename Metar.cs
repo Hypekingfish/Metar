@@ -14,7 +14,7 @@ public class CPHInline
             return false;
         }
 
-        rawInput = rawInput.ToUpper();
+        rawInput = rawInput.ToUpper(); test
 
         if (rawInput != "RANDOM" && !Regex.IsMatch(rawInput, "^[A-Z]{4}$"))
         {
